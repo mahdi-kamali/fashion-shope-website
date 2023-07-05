@@ -175,8 +175,6 @@ const ShoppingCartPage = () => {
             </div>
 
             
-
-       
         </div>
     )
 }

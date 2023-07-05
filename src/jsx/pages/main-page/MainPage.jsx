@@ -7,6 +7,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 const MainPage = () => {
     return (
         <div className='main-page'>
+
+
+
             <section className='poster'>
                 <img className='first' src={require("../../../images/main-page/poster/1.webp")} alt="" />
                 <img className='second' src={require("../../../images/main-page/poster/2.jpeg")} alt="" />
@@ -28,6 +31,15 @@ const MainPage = () => {
                     pagination={{ clickable: true }}
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
+
+                    breakpoints={{
+                        // when window width is >= 640px
+                        320: {
+                            width: 320,
+                            slidesPerView: 1,
+                        },
+                       
+                    }}
                 >
                     <SwiperSlide >
                         <div className="card">
@@ -215,6 +227,14 @@ const MainPage = () => {
                     pagination={{ clickable: true }}
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
+                    breakpoints={{
+                        // when window width is >= 640px
+                        320: {
+                            width: 320,
+                            slidesPerView: 1,
+                        },
+                       
+                    }}
                 >
                     <SwiperSlide >
                         <div className="card">

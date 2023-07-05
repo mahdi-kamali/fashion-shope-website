@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router-dom';
 const Header = () => {
 
   const [selectedPage, setPage] = useState()
-
-
   const navigator = useNavigate()
+
+  const [sideBar, toggleSideBar] = useState(false)
 
   useEffect(() => {
     if (selectedPage) {
@@ -18,14 +18,24 @@ const Header = () => {
     }
   }, [selectedPage])
 
+  useEffect(() => {
+    toggleSideBar(false)
+  }, [selectedPage])
+
+
 
 
 
   return (
     <header>
+
+
       <div className="right">
         <div className="logo">
           <img src={require("../../images/header/logo.avif")} alt="" />
+        </div>
+        <div className="menu">
+          <Icon icon="ep:menu" onClick={() => toggleSideBar(!sideBar)} />
         </div>
       </div>
       <div className="mid">
@@ -45,8 +55,8 @@ const Header = () => {
         </button>
       </div>
 
-      <nav>
-        <ul>
+      <nav >
+        <ul className={sideBar ? `side-bar-visible` : ""}>
           <li className={selectedPage === "/" ? `selected` : ""} onClick={() => { setPage("/") }}>
             <Icon className='icon' icon="ion:home-outline" />
             <span>صفحه ی اصلی</span>
@@ -63,11 +73,13 @@ const Header = () => {
             <Icon className='icon' icon="ph:bag-thin" />
             <span>سبد خرید</span>
           </li>
-
-          <li>
+          <li className={selectedPage === "/user-page" ? `selected` : ""} onClick={() => { setPage("/user-page") }}>
             <Icon className='icon' icon="ph:user" />
-
             <span>حساب کاربری</span>
+          </li>
+          <li className={selectedPage === "/create-post-page" ? `selected` : ""} onClick={() => { setPage("/create-post-page") }}>
+            <Icon icon="uil:create-dashboard" />
+            <span>ایجاد محصول</span>
           </li>
         </ul>
       </nav>
