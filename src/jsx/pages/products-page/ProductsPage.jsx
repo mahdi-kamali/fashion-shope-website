@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const ProductsPage = () => {
@@ -197,6 +197,8 @@ const ProductsPage = () => {
 
     const allProducts = [...newProducts, ...popularProuducts]
 
+    const [categoryProducts, setCategoryProducts] = useState(allProducts)
+
     const navigator = useNavigate()
 
 
@@ -206,6 +208,23 @@ const ProductsPage = () => {
         navigator(`/detail-page`, { state: card })
     }
 
+    function sortByCategory(catName) {
+        let temp = []
+
+        allProducts.forEach((item, index) => {
+            if (item.title.includes(catName)) {
+                temp.push(item)
+            }
+        })
+
+        if (catName === "همه محصولات") {
+            setCategoryProducts(allProducts)
+        } else {
+            setCategoryProducts(temp)
+        }
+
+
+    }
 
     return (
         <div className='products-page'>
@@ -216,22 +235,20 @@ const ProductsPage = () => {
                         <span>دسته بندی</span>
                     </h1>
                     <ul>
-                        <li>کرم پودر</li>
-                        <li>کرم پودر</li>
-                        <li>کرم پودر</li>
-                        <li>کرم پودر</li>
-                        <li>کرم پودر</li>
-                        <li>کرم پودر</li>
-                        <li>کرم پودر</li>
-                        <li>کرم پودر</li>
+                        <li onClick={() => sortByCategory("همه محصولات")}>همه محصولات</li>
+                        <li onClick={() => sortByCategory("کرم")}>کرم پودر</li>
+                        <li onClick={() => sortByCategory("شامپو")}>شامپو</li>
+                        <li onClick={() => sortByCategory("ریمل")}>ریمل</li>
+                        <li onClick={() => sortByCategory("خط چشم")}>خط چشم</li>
+                        <li onClick={() => sortByCategory("رژ")}>رژ</li>
                     </ul>
                 </div>
             </div>
             <div className="left">
                 {
-                    allProducts.map((item, index) => {
+                    categoryProducts.map((item, index) => {
                         return (
-                            <div className="card" key={index}>
+                            <div className="card" key={index}  onClick={() => cardClickHandler(item)} >
                                 <div className="card-header">
                                     <img className='card-image' src={item.image} alt="" />
                                     <div className="card-buttons">
