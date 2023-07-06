@@ -1,8 +1,31 @@
 import { Icon } from "@iconify/react"
+import { useEffect, useState } from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 const ShoppingCartPage = () => {
+
+    const [shoppingCart, setShoppingCart] = useState([])
+
+
+    useEffect(() => {
+        setShoppingCart(JSON.parse(localStorage.getItem("shopping-cart")))
+    }, [])
+
+
+    function deleteFromShoppingCart(card) {
+
+        shoppingCart.forEach((item, index) => {
+            if (card.id === item.id) {
+                shoppingCart.splice(index, index + 1)
+            }
+        })
+
+        localStorage.setItem("shopping-cart", JSON.stringify([...shoppingCart]))
+        setShoppingCart([...shoppingCart])
+
+    }
+
     return (
         <div className="shopping-cart-page">
             <aside className="right">
@@ -37,144 +60,44 @@ const ShoppingCartPage = () => {
             <div className="left">
                 <h1>سبد خرید شما</h1>
                 <div className="products">
-                    <div className="card">
-                        <div className="card-header">
-                            <img src={require("../../../images/products/5.jpeg")} alt="" />
-                        </div>
-                        <div className="card-body">
-                            <div className="card-title">
-                                ژل فیکساتور ابرو فلورمار
-                            </div>
-                            <div className="card-price">
-                                <span>100.250</span>
-                                <span>تومان</span>
-                            </div>
-                        </div>
-                        <div className="card-buttons">
-                            <button>
-                                <Icon icon="fluent:delete-24-filled" />
-                            </button>
-                            <button>
-                                <Icon icon="icon-park-outline:like" />
-                            </button>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-header">
-                            <img src={require("../../../images/products/5.jpeg")} alt="" />
-                        </div>
-                        <div className="card-body">
-                            <div className="card-title">
-                                ژل فیکساتور ابرو فلورمار
-                            </div>
-                            <div className="card-price">
-                                <span>100.250</span>
-                                <span>تومان</span>
-                            </div>
-                        </div>
-                        <div className="card-buttons">
-                            <button>
-                                <Icon icon="fluent:delete-24-filled" />
-                            </button>
-                            <button>
-                                <Icon icon="icon-park-outline:like" />
-                            </button>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-header">
-                            <img src={require("../../../images/products/5.jpeg")} alt="" />
-                        </div>
-                        <div className="card-body">
-                            <div className="card-title">
-                                ژل فیکساتور ابرو فلورمار
-                            </div>
-                            <div className="card-price">
-                                <span>100.250</span>
-                                <span>تومان</span>
-                            </div>
-                        </div>
-                        <div className="card-buttons">
-                            <button>
-                                <Icon icon="fluent:delete-24-filled" />
-                            </button>
-                            <button>
-                                <Icon icon="icon-park-outline:like" />
-                            </button>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-header">
-                            <img src={require("../../../images/products/5.jpeg")} alt="" />
-                        </div>
-                        <div className="card-body">
-                            <div className="card-title">
-                                ژل فیکساتور ابرو فلورمار
-                            </div>
-                            <div className="card-price">
-                                <span>100.250</span>
-                                <span>تومان</span>
-                            </div>
-                        </div>
-                        <div className="card-buttons">
-                            <button>
-                                <Icon icon="fluent:delete-24-filled" />
-                            </button>
-                            <button>
-                                <Icon icon="icon-park-outline:like" />
-                            </button>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-header">
-                            <img src={require("../../../images/products/5.jpeg")} alt="" />
-                        </div>
-                        <div className="card-body">
-                            <div className="card-title">
-                                ژل فیکساتور ابرو فلورمار
-                            </div>
-                            <div className="card-price">
-                                <span>100.250</span>
-                                <span>تومان</span>
-                            </div>
-                        </div>
-                        <div className="card-buttons">
-                            <button>
-                                <Icon icon="fluent:delete-24-filled" />
-                            </button>
-                            <button>
-                                <Icon icon="icon-park-outline:like" />
-                            </button>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-header">
-                            <img src={require("../../../images/products/5.jpeg")} alt="" />
-                        </div>
-                        <div className="card-body">
-                            <div className="card-title">
-                                ژل فیکساتور ابرو فلورمار
-                            </div>
-                            <div className="card-price">
-                                <span>100.250</span>
-                                <span>تومان</span>
-                            </div>
-                        </div>
-                        <div className="card-buttons">
-                            <button>
-                                <Icon icon="fluent:delete-24-filled" />
-                            </button>
-                            <button>
-                                <Icon icon="icon-park-outline:like" />
-                            </button>
-                        </div>
-                    </div>
+                    {
+                        shoppingCart?.map((item, index) => {
+                            return (
+                                <div className="card" key={index}>
+                                    <div className="card-header">
+                                        <img src={item.image} alt="" />
+                                    </div>
+                                    <div className="card-body">
+                                        <div className="card-title">
+                                            {item.title}
+                                        </div>
+                                        <div className="card-price">
+                                            {item.price}
+                                        </div>
+                                    </div>
+                                    <div className="card-buttons">
+                                        <button onClick={() => deleteFromShoppingCart(item)}>
+                                            <Icon icon="fluent:delete-24-filled" />
+                                        </button>
+                                        <button>
+                                            <Icon icon="icon-park-outline:like" />
+                                        </button>
+                                    </div>
+                                </div>
+                            )
+                        })
+
+                    }
                 </div>
 
-                
+                {
+                    shoppingCart.length === 0 ? "سبد خرید خالی است" : ""
+                }
+
+
             </div>
 
-            
+
         </div>
     )
 }

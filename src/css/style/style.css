@@ -88,7 +88,69 @@ header nav ul .selected {
   background-color: #01539d;
   color: white;
 }
-
+header .search-result {
+  top: 0;
+  background-color: white;
+  z-index: 998;
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  display: none;
+}
+header .search-result .results-header {
+  text-align: start;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2em;
+}
+header .search-result .results-header button {
+  display: flex;
+  gap: 0.25rem;
+  background-color: #d60644;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100rem;
+  font-size: 0.9rem;
+  padding: 0.5em 1em;
+}
+header .search-result .result-body {
+  display: grid;
+  place-content: start;
+  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  width: 100%;
+}
+header .search-result .result-body .card {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+}
+header .search-result .result-body .card .card-title {
+  font-size: 0.8rem;
+}
+header .search-result .result-body .card .card-price {
+  font-size: 1rem;
+}
+header .search-result .result-body .card .card-buttons {
+  display: flex;
+  gap: 0.5rem;
+  line-height: 0;
+  font-size: 1.5rem;
+  margin-top: 0.25rem;
+}
+header .search-result .result-body .card img {
+  width: 8rem;
+  padding: 1em;
+}
+header .search-result-open {
+  display: flex;
+}
 main {
   padding-bottom: 5em;
 }
@@ -581,6 +643,42 @@ main {
   font-size: 1.25rem;
 }
 
+.detail-page {
+  display: grid;
+  grid-template-columns: 40rem 1fr;
+  padding: 3em;
+}
+.detail-page .left {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.detail-page .left .description {
+  opacity: 0.7;
+}
+.detail-page .left .price {
+  display: flex;
+  gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.detail-page .left button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  color: white;
+  line-height: 0;
+  padding: 0.5em 2em;
+  border-radius: 100rem;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.detail-page .left button svg {
+  font-size: 1.25rem;
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -725,6 +823,10 @@ footer .left img {
     flex-direction: column-reverse;
   }
   .create-post-page .form-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .detail-page {
     display: flex;
     flex-direction: column;
   }

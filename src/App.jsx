@@ -7,6 +7,7 @@ import AboutUsPage from "./jsx/pages/about-us/AboutUsPage";
 import ShoppingCartPage from "./jsx/pages/shopping-cart-page/ShoppingCartPage";
 import User from "./jsx/pages/user/User";
 import CreatePostPage from "./jsx/pages/create-post-page/CreatePostPage";
+import DetailPage from "./jsx/pages/detail-page/DetailPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/shopping-cart-page" element={<ShoppingCartPage />} />
           <Route path="/user-page" element={<User />} />
           <Route path="/create-post-page" element={<CreatePostPage />} />
+          <Route path="/detail-page" element={<DetailPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

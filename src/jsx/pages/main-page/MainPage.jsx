@@ -1,10 +1,223 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Navigation, Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
 const MainPage = () => {
+
+
+    const navigator = useNavigate()
+
+
+    const newProducts = [
+        {
+            id: 1,
+            image: "https://mootanroo.com/images/thumbs/0363737_-my-boos-420-.jpeg",
+            title: "شامپو بدن مردانه شون مدل My Boos",
+            description: `شامپو بدن مردانه مدل My Boos یک محصول بی نظیر است که برای نیازهای بهداشتی مردان طراحی شده است. این شامپو بدن با فرمولاسیون منحصر به فرد خود، به آقایان کمک می کند تا پوست خود را به طور کامل تمیز و مرطوب کنند.
+
+            فرمولاسیون قدرتمند این شامپو بدن شامل مواد مغذی و مرطوب کننده است که به پوست کمک می کنند تا تغذیه و حفظ رطوبت لازم را داشته باشد. علاوه بر این، عطر مردانه خاصی که در این محصول استفاده شده است، به شما احساس تازگی و اعتماد به نفس بیشتری می دهد.
+            
+            شامپو بدن مردانه مدل My Boos دارای کف لایه‌ای متراکم است که به آرامی و با کف لطیف تماس می‌کند و باعث تمیزی عمیق پوست می‌شود. با استفاده منظم از این شامپو بدن، می توانید از روزمرگی پوست خود آسوده شوید و لذت ببرید.
+            
+            ما به دلیل کیفیت بالا و اثربخشی این محصول، به شدت توصیه می کنیم که شامپو بدن مردانه مدل My Boos را امتحان کنید و تجربه‌ای منحصر به فرد از تمیزی و تازگی را تجربه کنید.`,
+            price: "۵۵/۱۰۰تومان",
+            available: true
+        },
+        {
+            id: 2,
+            image: "https://mootanroo.com/images/thumbs/0391679_-.jpeg",
+            title: "رژ لب جامد مرو",
+            description: `رژ لب جامد مرو، یک محصول فوق العاده است که زیبایی لب‌های شما را به اوج می‌رساند. این رژ لب دارای فرمولاسیونی منحصر به فرد است که باعث ایجاد رنگی زنده و دوام بالا بر روی لب‌های شما می‌شود.
+
+            فرمولاسیون بسیار نرم و کرمی این رژ لب، برای استفاده آسان و راحت ترکیب شده است. با این رژ لب، می‌توانید لب‌های خود را به شکلی شیک و جذاب رنگ آمیزی کنید و آنها را مرطوب و نرم نگه دارید.
+            
+            رژ لب جامد مرو، دارای پوشش بالا و ماندگاری طولانی است که به شما اطمینان می‌دهد که رنگ زیبا و جذاب روی لب‌هایتان تا طول روز حفظ خواهد شد. علاوه بر این، این رژ لب دارای رایحه مطبوعی است که حس تازگی و راحتی را به شما القا می‌کند.
+            
+            اگر به دنبال رژ لبی با کیفیت بالا، پوشش کامل و رنگی زنده هستید، به شدت توصیه می‌کنیم رژ لب جامد مرو را امتحان کنید و تجربه‌ای لذت بخش از زیبایی لب‌هایتان را داشته باشید.`,
+            price: "۶۴/۰۰۰تومان",
+            available: true
+        },
+        {
+            id: 3,
+            image: "https://mootanroo.com/images/thumbs/0391685_-165-.jpeg",
+            title: "شامپو ضد شوره مو مرو حاوی اکتوپیروکس حجم 165 میل",
+            description: `شامپو ضد شوره مو مرو حاوی اکتوپیروکس حجم 165 میل، یک محصول عالی برای مراقبت از موهای شما است. این شامپو طراحی شده است تا به شما کمک کند با مشکلات شوره‌زایی مواجهه نکنید و پوست سرتان را تمیز و سالم نگه دارید.
+
+            فرمولاسیون این شامپو حاوی اکتوپیروکس است که به طور مؤثر با علائم و عوارض شوره مبارزه می کند. این ماده فعال به پوست سر نفوذ کرده و با کاهش تولید سلول‌های شوره، خارش و التهاب را کاهش می دهد.
+            
+            شامپو ضد شوره مو مرو همچنین دارای ترکیبات مرطوب کننده است که به موهایتان نرمی و لطافت می‌بخشد و از خشکی و شکنندگی جلوگیری می‌کند. با استفاده منظم از این شامپو، می توانید موهای خوش‌ساخت و بدون شوره داشته باشید.
+            
+            شامپو ضد شوره مو مرو حجم 165 میل، به دلیل ترکیبات مؤثر و اثربخش خود، توصیه می‌شود تا به مشکلات شوره و خارش موهایتان پایان دهید و موهایی سالم و زیبا داشته باشید.`,
+            price: "۸۲/۰۰۰تومان",
+            available: true
+        },
+        {
+            id: 4,
+            image: "https://mootanroo.com/images/thumbs/0253121_callista-extend-volume-294250641402.jpg.jpeg",
+            title: "ریمل حجم دهنده کالیستا مدل Extend Volume",
+            description: `ریمل حجم دهنده کالیستا مدل Extend Volume، یک ریمل بی‌نظیر است که به مژه‌های شما حجم و طول بیشتری می‌بخشد. با استفاده از این ریمل، مژه‌هایتان قابل توجهی پر و فراوان به نظر خواهند رسید.
+
+            فرمولاسیون منحصر به فرد این ریمل، با ترکیبات خاصی طراحی شده است که به مژه‌ها حجم و ضخامت می‌بخشد. قوس دهنده‌ی حرفه‌ای برس ریمل، به راحتی مژه‌ها را جدا کرده و به آنها شکل و حجم دهی می‌کند.
+            
+            ریمل حجم دهنده کالیستا مدل Extend Volume، دارای فرمولاسیون ضد رطوبت است که مژه‌های شما را از تاثیر رطوبت و خیس شدن محافظت می‌کند. این ریمل دارای رنگ قوی و ماندگاری بالا است که به مژه‌هایتان طولانی مدت برخورداری از حجم و طول می‌بخشد.
+            
+            اگر به دنبال ریملی با قدرت حجم دهی بالا و نتیجه‌ای چشم‌نواز هستید، ریمل حجم دهنده کالیستا مدل Extend Volume را به شدت توصیه می‌کنیم تا مژه‌های پرزنده و جذابی داشته باشید.`,
+            price: "۱۰۴/۳۲۸تومان",
+            available: true
+        },
+        {
+            id: 5,
+            image: "https://mootanroo.com/images/thumbs/0221380_callista-line-express-dip-liner-eyeliner-294201141402.jpg.jpeg",
+            title: "خط چشم نمدی کالیستا مدل Line Express",
+            description: `خط چشم نمدی کالیستا مدل Line Express، یک ابزار حرفه‌ای برای آرایش چشم‌های شما است. با این خط چشم، می‌توانید خطوط دقیق و تعریف شده‌ای روی چشمان خود بکشید و به آنها زیبایی و جذابیت بیشتری ببخشید.
+
+            نوک دقیق و نرم این خط چشم، به شما امکان می‌دهد خطوط صاف و هموار را با دقت و آسانی روی چشمانتان ایجاد کنید. این خط چشم دارای رنگ قوی و ماندگاری بالا است که تمام روز به شما ظاهری بی‌عیب و نقص خواهد بخشید.
+            
+            خط چشم نمدی کالیستا مدل Line Express، دارای فرمولاسیون ضد آب است که باعث می‌شود خطوط چشم شما حتی در مقابل رطوبت و تماس با آب حفظ شوند. این خط چشم باعث تعریف چشمان شما می‌شود و به آنها برجستگی و شکل دهی می‌کند.
+            
+            اگر به دنبال خط چشمی با دقت بالا، رنگی قوی و ماندگاری طولانی هستید، خط چشم نمدی کالیستا مدل Line Express را به شدت توصیه می‌کنیم تا ظاهری بی‌نقص و جذاب بر روی چشمانتان داشته باشید.`,
+            price: "۱۶۷/۲۰۰تومان",
+            available: true
+        },
+        {
+            id: 6,
+            image: "https://mootanroo.com/images/thumbs/0378011.jpeg",
+            title: "رژ لب مایع مای سری بلک دایموند مدل Perfection Matt",
+            description: `رژ لب مایع مای سری بلک دایموند مدل Perfection Matt، یک رژ لب مایع بسیار شیک و با کیفیت است. این رژ لب با فرمولاسیون خاص خود، به لب‌های شما رنگی مات و بدون براقیت می‌بخشد و ظاهری بی‌نقص و مات به آنها می‌بخشد.
+
+            رژ لب مایع Perfection Matt دارای رنگهای ژرف و غنی است که به لب‌های شما یک جذابیت خاص می‌بخشد. فرمولاسیون بی‌ریخت و روان این رژ لب، به راحتی بر روی لب‌ها اعمال شده و به آنها حس راحتی و نرمی می‌بخشد.
+            
+            این رژ لب مایع دارای پوشش بالا و ماندگاری طولانی است، بنابراین می‌توانید از آن در طول روز بهره‌برداری کنید. فرمولاسیون ضدآب آن همچنین از خوردگی رژ لب جلوگیری می‌کند و می‌توانید لب‌های زیبا و رنگارنگ خود را در طول روز حفظ کنید.
+            
+            اگر به دنبال رژ لبی با پوشش بالا، رنگی مات و ماندگاری طولانی هستید، رژ لب مایع مای سری بلک دایموند مدل Perfection Matt را به شدت توصیه می‌کنیم. با این رژ لب، لب‌های خود را به شکلی بی‌نقص و جذاب تغییر دهید.`,
+            price: "۱۷۱/۰۰۰تومان",
+            available: true
+        },
+        {
+            id: 7,
+            image: "https://mootanroo.com/images/thumbs/0253126_callista-wonder-volume-294250641401.jpg.jpeg",
+            title: "ریمل حجم دهنده کالیستا مدل Wonder Volume",
+            description: `ریمل حجم دهنده کالیستا مدل Wonder Volume، یک ریمل عالی برای افزایش حجم مژه‌های شما است. این ریمل با فرمولاسیون خاص خود، به مژه‌ها حجم بیشتر و ظاهری پرزنده می‌بخشد.
+
+            با استفاده از ریمل حجم دهنده کالیستا مدل Wonder Volume، می‌توانید مژه‌های خود را تغییر داده و به آنها حجم و ضخامت بیشتری ببخشید. فرمولاسیون پوشش‌دهنده این ریمل، به مژه‌ها حجم و تعریف بیشتری می‌بخشد و آنها را به طور کامل پوشش می‌دهد.
+            
+            ریمل حجم دهنده کالیستا مدل Wonder Volume، دارای برسی حجیم و متمرکز است که به طور دقیق مژه‌ها را جدا کرده و حجم بیشتری به آنها می‌بخشد. علاوه بر این، این ریمل دارای ماندگاری بالا است که به شما اطمینان می‌دهد که حجم و طول مژه‌هایتان طولانی مدت حفظ خواهد شد.
+            
+            اگر به دنبال ریملی با حجم دهندگی بالا و نتیجه‌ای جذاب هستید، ریمل حجم دهنده کالیستا مدل Wonder Volume را به شدت توصیه می‌کنیم. با این ریمل، مژه‌های پرزنده و جذابی داشته باشید و چشمانی بی‌نقص و جذاب را به ارمغان بیاورید.`,
+            price: "۱۹۶/۷۱۰تومان",
+            available: true
+        }
+    ]
+
+
+    const popularProuducts = [
+        {
+            id: 8,
+            image: "https://mootanroo.com/images/thumbs/0218365_hydroderm-shampoo-hir-body-156263051101.jpg.jpeg",
+            title: "شامپو سر و بدن هیدرودرم",
+            description: `شامپو سر و بدن هیدرودرم، یک محصول عالی برای مراقبت از مو و پوست شماست. این شامپو به طور خاص برای نوزادان و شیرخواران طراحی شده است و حاوی مواد ملایم و مرطوب کننده‌ای است که پوست حساس آنها را تمیز و نرم می‌کند.
+
+            این شامپو سر و بدن هیدرودرم دارای فرمولاسیونی منحصر به فرد است که به پوست و موهای شما مرطوبیت و تغذیه لازم را می‌بخشد. همچنین، با ترکیبات خاص خود، به نرمی و بدون ایجاد تحریک، پوست و موهای شما را تمیز و شاداب می‌کند.
+            
+            شامپو سر و بدن هیدرودرم دارای بسته‌بندیی مناسب و حجم 250 گرم است که راحتی استفاده و حمل آن را تضمین می‌کند. با استفاده منظم از این شامپو، می‌توانید از پوست و موهای حساس نوزادان و شیرخواران خود مراقبت کرده و آنها را تمیز و سالم نگه دارید.
+            
+            شامپو سر و بدن هیدرودرم، به دلیل خصوصیات مرطوب کنندگی و ملایمت خود، توصیه می‌شود تا پوست و موهای شما را به بهترین شکل ممکن نگه دارد.`,
+            price: "۳۸/۵۰۰تومان",
+            discount: null
+        },
+        {
+            id: 9,
+            image: "https://mootanroo.com/images/thumbs/0211148_schon-shampoo-rose-112260321902.jpg.jpeg",
+            title: "شامپو روزانه ضد ریزش رز و رزماری",
+            description: `شامپو روزانه ضد ریزش رز و رزماری، یک محصول عالی برای حفظ و تقویت موهای شما است. این شامپو طراحی شده است تا به طور خاص برای انواع موها و به ویژه موهای مستعد ریزش مو موثر باشد. حاوی عصاره رز و رزماری است که به موهای شما نرمی و لطافت می‌بخشد.
+
+            فرمولاسیون منحصر به فرد این شامپو، با استفاده از ترکیبات مغذی و تقویت کننده، به موها کمک می‌کند قوی و سالم تر شوند و از ریزش پیشگیری کند. همچنین، با بوی خوشایند رز و رزماری، تجربه‌ی آرامش بخشی در هنگام استفاده از این شامپو خواهید داشت.
+            
+            شامپو روزانه ضد ریزش رز و رزماری دارای بسته‌بندی مناسب و حجم 400 میل است. با استفاده منظم از این شامپو، می‌توانید موهای خود را تقویت کرده و از ریزش آنها جلوگیری کنید، در نتیجه موهایی سالم و قوی‌تر خواهید داشت.
+            
+            اگر به دنبال شامپوی روزانه برای حفظ و تقویت موهایتان و جلوگیری از ریزش مو هستید، شامپو روزانه ضد ریزش رز و رزماری را به شدت توصیه می‌کنیم. با استفاده منظم از این شامپو، موهایتان را به بهترین حالت ممکن نگه دارید.`,
+            price: "۴۹/۰۰۰تومان",
+            discount: "۴۶/۰۶۰تومان"
+        },
+        {
+            id: 10,
+            image: "https://mootanroo.com/images/thumbs/0200806_schon-herbamix-shampoo-300ml-112260011902.jpg.jpeg",
+            title: "شامپو تقویت کننده هفت گیاه",
+            description: `شامپو تقویت کننده هفت گیاه، یک محصول عالی برای تقویت و حفظ سلامت موهای شما است. این شامپو حاوی ترکیبات مغذی از هفت گیاه مختلف است که به موها انرژی و تغذیه می‌بخشد و آنها را قوی و سالم نگه می‌دارد.
+
+            فرمولاسیون منحصر به فرد این شامپو با استفاده از ترکیبات گیاهی مثل عصاره آلوئه ورا، چای سبز، گیاه بنفشه و سایر گیاهان طبیعی، به موهای شما تقویت و حیات می‌بخشد. این ترکیبات به موها عمق و لطافت می‌بخشند و آنها را از آسیب‌های روزمره و شکنندگی محافظت می‌کنند.
+            
+            شامپو تقویت کننده هفت گیاه دارای بسته‌بندی مناسب و حجم 300 میل است. با استفاده منظم از این شامپو، می‌توانید موهای خود را تقویت کرده و از آنها لطافت و جذابیت بیشتری بخشید. همچنین، این شامپو به آرامش و تازگی به پوست سر شما می‌انجامد.
+            
+            اگر به دنبال شامپوی تقویت کننده و مغذی برای موهایتان هستید، شامپو تقویت کننده هفت گیاه را به شدت توصیه می‌کنیم. با استفاده منظم از این شامپو، موهایتان را تقویت کرده و آنها را به بهترین شکل ممکن نگه دارید.`,
+            price: "۴۷/۰۰۰تومان",
+            discount: null
+        },
+        {
+            id: 11,
+            image: "https://mootanroo.com/images/thumbs/0218333_hydroderm-hair-removal-156130771201.jpg.jpeg",
+            title: "کرم موبر بدن هیدرودرم",
+            description: `کرم موبر بدن هیدرودرم، یک محصول عالی برای از بین بردن موهای غیرمطلوب بدن است. این کرم موبر به طور خاص برای استفاده بر روی بدن طراحی شده است و به شما کمک می‌کند تا به طور آرام و موثر موهای غیرمطلوب را بردارید.
+
+            فرمولاسیون منحصر به فرد این کرم موبر با استفاده از ترکیبات خاص، به موهای بدن شما نفوذ کرده و آنها را به آسانی و بدون تحریک از بین می‌برد. این کرم موبر همچنین دارای خواص مرطوب کنندگی است که پوست شما را نرم و لطیف می‌کند.
+            
+            کرم موبر بدن هیدرودرم دارای بسته‌بندی مناسب و حجم 75 گرم است. با استفاده صحیح از این کرم موبر، می‌توانید موهای غیرمطلوب بدن خود را به طور دقیق و بدون ایجاد تحریک بردارید، در نتیجه پوست بدنی نرم و مرطوب خواهید داشت.
+            
+            اگر به دنبال یک کرم موبر با عملکرد موثر و مرطوب کنندگی برای بدنتان هستید، کرم موبر بدن هیدرودرم را به شدت توصیه می‌کنیم. با استفاده منظم از این کرم موبر، موهای غیرمطلوب بدنتان را به بهترین شکل ممکن از بین ببرید و پوستی نرم و مرطوب را تجربه کنید.`,
+            price: "۴۸/۰۰۰تومان",
+            discount: null
+        },
+        {
+            id: 12,
+            image: "https://mootanroo.com/images/thumbs/0325677_deepsense-colored-lotion-73700000008.jpg.jpeg",
+            title: "لوسیون نرم کننده مو دیپ سنس",
+            description: `لوسیون نرم کننده مو دیپ سنس، یک محصول بی‌نظیر برای نرم و لطیف کردن موهای شما است. این لوسیون به طور خاص برای موهای رنگ شده طراحی شده است و با ترکیبات مغذی و مرطوب کننده، به موهای شما نرمی، لطافت و براقیت می‌بخشد.
+
+            فرمولاسیون منحصر به فرد این لوسیون شامل ترکیباتی مانند عصاره جوانه گندم و سایر مواد مغذی است که به موها انرژی و تغذیه می‌بخشد. این لوسیون به موهای شما حالت دهی می‌کند و آنها را از آسیب‌های روزمره و حرارت محافظت می‌کند.
+            
+            لوسیون نرم کننده مو دیپ سنس دارای بسته‌بندی مناسب و حجم 200 میل است. با استفاده منظم از این لوسیون، می‌توانید موهای خود را نرم، لطیف و با لمسی مخملی داشته باشید. همچنین، این لوسیون به موهای شما حالت و حجم می‌دهد و آنها را به طور کامل مراقبت می‌کند.
+            
+            اگر به دنبال لوسیونی برای نرم و لطیف کردن موهای رنگ شده خود هستید، لوسیون نرم کننده مو دیپ سنس را به شدت توصیه می‌کنیم. با استفاده منظم از این لوسیون، موهایتان را نرم، لطیف و درخشان داشته باشید و حس زیبایی و طراوت را تجربه کنید.`,
+            price: "۵۹/۰۰۰تومان",
+            discount: "۵۰/۱۵۰تومان"
+        },
+        {
+            id: 13,
+            image: "https://mootanroo.com/images/thumbs/0325699_deepsense-body-wash-400ml-73700000002.jpg.jpeg",
+            title: "شامپو بدن دیپ سنس حاوی گلاب",
+            description: `شامپو بدن دیپ سنس حاوی گلاب، یک محصول بی‌نظیر برای تمیزی و مراقبت از پوست شما است. این شامپو برای استفاده بر روی انواع پوست‌ها و به ویژه پوست‌های حساس طراحی شده است. حاوی عصاره گلاب طبیعی است که به پوست شما تازگی، آرامش و تغذیه می‌بخشد.
+
+            فرمولاسیون منحصر به فرد این شامپو با استفاده از ترکیبات مرطوب کننده و مغذی، به پوست شما احیا و تقویت می‌بخشد. عصاره گلاب طبیعی در این شامپو به پوست شما نرمی و لطافت می‌بخشد و آن را از آسیب‌های روزمره محافظت می‌کند.
+            
+            شامپو بدن دیپ سنس حاوی گلاب دارای بسته‌بندی مناسب و حجم 400 میل است. با استفاده منظم از این شامپو، می‌توانید پوست خود را تمیز، نرم و مرطوب نگه دارید. همچنین، این شامپو با بوی ملایم و خوشایند گلاب، حس آرامش و راحتی را در هنگام استحمام به شما القا می‌کند.
+            
+            اگر به دنبال شامپوی بدنی با خواص مرطوب کنندگی و آرامش‌بخش برای پوستتان هستید، شامپو بدن دیپ سنس حاوی گلاب را به شدت توصیه می‌کنیم. با استفاده منظم از این شامپو، پوستی تمیز، نرم و آرامش داشته باشید و لذت یک حمام مراقبتی بهتر را تجربه کنید.`,
+            price: "۸۸/۰۰۰تومان",
+            discount: "۷۰/۴۰۰تومان"
+        }]
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function cardClickHandler(card) {
+        navigator(`detail-page/`, { state: card })
+    }
+
+
+
+
     return (
         <div className='main-page'>
 
@@ -38,177 +251,47 @@ const MainPage = () => {
                             width: 320,
                             slidesPerView: 1,
                         },
-                       
                     }}
                 >
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
 
-                            </div>
-                        </div>
 
-                    </SwiperSlide>
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
+                    {
+                        newProducts.map((item, index) => {
+                            return (
+                                <SwiperSlide >
+                                    <div className="card" onClick={() => cardClickHandler(item)}>
+                                        <div className="card-header">
+                                            <img className='card-image' src={item.image} />
+                                            <div className="card-buttons">
+                                                <button className="buy">
+                                                    <Icon icon="icon-park-outline:shopping-cart" />
+                                                </button>
+                                                <button className="favoriotes">
+                                                    <Icon icon="bx:heart" />
+                                                </button>
+                                                <button className="share">
+                                                    <Icon icon="clarity:share-line" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div className="card-body">
+                                            <h1 className="card-title">
+                                                {item.title}
+                                            </h1>
+                                            <div className="card-price">
+                                                {item.price}
+                                            </div>
 
-                            </div>
-                        </div>
+                                        </div>
+                                    </div>
 
-                    </SwiperSlide>
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
+                                </SwiperSlide>
+                            )
+                        })
+                    }
 
-                            </div>
-                        </div>
 
-                    </SwiperSlide>
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
 
-                            </div>
-                        </div>
-
-                    </SwiperSlide>
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </SwiperSlide>
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </SwiperSlide>
 
                 </Swiper>
             </section>
@@ -233,177 +316,44 @@ const MainPage = () => {
                             width: 320,
                             slidesPerView: 1,
                         },
-                       
+
                     }}
                 >
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
+                    {
+                        popularProuducts.map((item, index) => {
+                            return (
+                                <SwiperSlide >
+                                    <div className="card" onClick={() => cardClickHandler(item)}>
+                                        <div className="card-header">
+                                            <img className='card-image' src={item.image} />
+                                            <div className="card-buttons">
+                                                <button className="buy">
+                                                    <Icon icon="icon-park-outline:shopping-cart" />
+                                                </button>
+                                                <button className="favoriotes">
+                                                    <Icon icon="bx:heart" />
+                                                </button>
+                                                <button className="share">
+                                                    <Icon icon="clarity:share-line" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div className="card-body">
+                                            <h1 className="card-title">
+                                                {item.title}
+                                            </h1>
+                                            <div className="card-price">
+                                                {item.price}
+                                            </div>
 
-                            </div>
-                        </div>
+                                        </div>
+                                    </div>
 
-                    </SwiperSlide>
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
+                                </SwiperSlide>
+                            )
+                        })
+                    }
 
-                            </div>
-                        </div>
-
-                    </SwiperSlide>
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </SwiperSlide>
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </SwiperSlide>
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </SwiperSlide>
-                    <SwiperSlide >
-                        <div className="card">
-                            <div className="card-header">
-                                <img className='card-image' src={require("../../../images/main-page/products/1.jpeg")} alt="" />
-                                <div className="card-buttons">
-                                    <button className="buy">
-                                        <Icon icon="icon-park-outline:shopping-cart" />
-                                    </button>
-                                    <button className="favoriotes">
-                                        <Icon icon="bx:heart" />
-                                    </button>
-                                    <button className="share">
-                                        <Icon icon="clarity:share-line" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h1 className="card-title">
-                                    شامپو تقویت کننده هفت گیاه مناسب انواع مو شون 300 میل
-                                </h1>
-                                <div className="card-price">
-                                    ۵۳/۱۰۰تومان
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </SwiperSlide>
 
                 </Swiper>
             </section>
