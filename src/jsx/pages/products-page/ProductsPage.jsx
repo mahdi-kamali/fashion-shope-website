@@ -236,7 +236,7 @@ const ProductsPage = () => {
                     </h1>
                     <ul>
                         <li onClick={() => sortByCategory("همه محصولات")}>همه محصولات</li>
-                        <li onClick={() => sortByCategory("کرم")}>کرم پودر</li>
+                        <li onClick={() => sortByCategory("کرم")}>کرم </li>
                         <li onClick={() => sortByCategory("شامپو")}>شامپو</li>
                         <li onClick={() => sortByCategory("ریمل")}>ریمل</li>
                         <li onClick={() => sortByCategory("خط چشم")}>خط چشم</li>

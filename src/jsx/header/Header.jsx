@@ -255,7 +255,7 @@ const Header = () => {
 
       <div className="right">
         <div className="logo">
-          <img src={require("../../images/header/logo.avif")} alt="" />
+          <img src={require("../../images/header/logo.png")} alt="" />
         </div>
         <div className="menu">
           <Icon icon="ep:menu" onClick={() => toggleSideBar(!sideBar)} />
